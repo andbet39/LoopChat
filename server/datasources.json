@@ -2,5 +2,14 @@
   "db": {
     "name": "db",
     "connector": "memory"
+  },
+  "mongoDS": {
+    "host": "localhost",
+    "port": 27017,
+    "url": "",
+    "database": "chat",
+    "name": "mongoDS",
+    "user": "",
+    "connector": "mongodb"
   }
 }
