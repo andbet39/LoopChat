@@ -13,7 +13,18 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "users": {
+      "type": "hasAndBelongsToMany",
+      "model": "ChatUser",
+      "foreignKey": ""
+    },
+    "messages": {
+      "type": "hasMany",
+      "model": "message",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
-  "methods": []
+  "methods": {}
 }

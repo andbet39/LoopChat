@@ -39,5 +39,9 @@
   "Room": {
     "dataSource": "mongoDS",
     "public": true
+  },
+  "ChatUser": {
+    "dataSource": "mongoDS",
+    "public": true
   }
 }

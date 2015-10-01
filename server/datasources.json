@@ -4,12 +4,13 @@
     "connector": "memory"
   },
   "mongoDS": {
-    "host": "localhost",
-    "port": 27017,
-    "url": "",
+    "host": "ds042888.mongolab.com",
+    "port": 42888,
+    "url": "mongodb://main:main123@ds042888.mongolab.com:42888/chat",
     "database": "chat",
-    "name": "mongoDS",
-    "user": "",
+    "name": "chat",
+    "user": "main",
+    "password":"main123", 
     "connector": "mongodb"
   }
 }

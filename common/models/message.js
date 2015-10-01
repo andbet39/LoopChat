@@ -2,23 +2,6 @@
 module.exports = function(Message) {
 
 
-	Message.sendmessage = function(content, cb) {
-		console.log('sendMessage');
-	    Message.create({'content':content,'posted_at':new Date()},
-	      function(err,mess){
-	     	 	Message.app.io.emit('message',mess);
-	    	cb();
-	    });
-	   };
-
-	  Message.remoteMethod('sendmessage', {
-	    accepts: [
-	      {arg: 'content', type: 'string'}
-	     ],
-	    returns: {arg: 'success', type: 'boolean'},
-	    http: {path:'/sendmessage', verb: 'post'}
-	  });
-
 	Message.sendmessagenew = function(message,cb){
 		 Message.create({'content':message.content,
 		 				 'userId':message.user_id,
@@ -29,7 +12,7 @@ module.exports = function(Message) {
   									include: {
     								relation: 'user'}},function(err,data){
     									console.log(data);
-    									Message.app.io.emit('message',data);
+    									Message.app.io.to(mess.roomId).emit('message',data);
 	    							cb();
     								});
 	     	 	
@@ -45,16 +28,19 @@ module.exports = function(Message) {
 	  });
 
 
-	 Message.getmessages = function(cb) {
+	 Message.getmessages = function(room_id,cb) {
 	 	console.log('getMessage function');
-	 	Message.find({include: 'user'},function(err,data) {
+	 	Message.find({where:{'roomId':room_id}
+	 				 ,include: 'user'},function(err,data) {
 	 		//console.log(data);
       		cb(null,data);
    		});
      };
 
     Message.remoteMethod('getmessages', {
-		accepts: [],
+		accepts: [
+	      {arg: 'room_id', type: 'string'}
+	     ],
 	    returns: {arg: 'messages', type: 'object'},
 	    http: {path:'/getmessages', verb: 'get'}
 	  });
