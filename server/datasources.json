@@ -8,9 +8,9 @@
     "port": 42888,
     "url": "mongodb://main:main123@ds042888.mongolab.com:42888/chat",
     "database": "chat",
-    "name": "chat",
+    "password": "main123",
+    "name": "mongoDS",
     "user": "main",
-    "password":"main123", 
     "connector": "mongodb"
   }
 }
