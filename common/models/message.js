@@ -27,23 +27,5 @@ module.exports = function(Message) {
 	    http: {path:'/sendmessagenew', verb: 'post'}
 	  });
 
-
-	 Message.getmessages = function(room_id,cb) {
-	 	console.log('getMessage function');
-	 	Message.find({where:{'roomId':room_id}
-	 				 ,include: 'user'},function(err,data) {
-	 		//console.log(data);
-      		cb(null,data);
-   		});
-     };
-
-    Message.remoteMethod('getmessages', {
-		accepts: [
-	      {arg: 'room_id', type: 'string'}
-	     ],
-	    returns: {arg: 'messages', type: 'object'},
-	    http: {path:'/getmessages', verb: 'get'}
-	  });
-
 };
 

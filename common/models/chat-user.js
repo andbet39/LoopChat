@@ -7,14 +7,11 @@ module.exports = function(ChatUser) {
 	    ChatUser.app.models.Room.findById(room_id,function(err,room){
 
 	    		ChatUser.findById(user_id,function(err,data){
-					console.log(room);
-
 					data.joinedrooms.add(room,function(err,res){
 
-					console.log(res);
 					cb();
 				});
-		});
+			});
 	    });
 		
 

@@ -34,6 +34,13 @@
       "principalId": "$authenticated",
       "permission": "ALLOW",
       "property": "joinroom"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "joinedrooms"
     }
   ],
   "methods": {}
